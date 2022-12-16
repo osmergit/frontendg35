@@ -44,7 +44,7 @@
 }
 .login-form h3 {
   text-align: center;
-  color:midnightblue ;
+  color:rgb(237, 18, 168) ;
   font-size: 28px;
   padding: 70px 0 10px 0;
 }
@@ -56,4 +56,12 @@
   border: 1px solid #ced4da;
   margin-bottom: 10px;
   box-sizing:border-box;
+}
+td{
+
+  color: white;
+
+}
+th {
+  color: red;
 }

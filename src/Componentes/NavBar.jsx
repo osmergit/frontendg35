@@ -28,7 +28,7 @@ export const  Navbareventos = () =>  {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">Información</Nav.Link>
+              <Nav.Link as = {Link} to={'/login'}>Login</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
                 Contactenos
               </Nav.Link>

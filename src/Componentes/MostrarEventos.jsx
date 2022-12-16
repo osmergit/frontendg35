@@ -4,9 +4,28 @@ import {Link} from 'react-router-dom'
 import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-const URI = 'http://localhost:8000/mostrareventos'
+import img1 from '../Img/mundial.jpg'
+const URI = 'http://localhost:8000/mostrareventos/'
 
 export const CompMostrarEventos = () => {
+
+    //Aca inicia el código que envia el encabezado del Token
+    const token1 = localStorage.getItem("auth")
+    const token = `${token1}`;
+    const beer = "Bearer"
+    let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            'accept': 'application/json',
+          //'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Njk0NjcxMzgsImV4cCI6MTY2OTQ2ODkzOH0.Dp0FfAN_taNOtPRhOGeAB7nQZvMvzVddPhN4TKb3JJo',
+         'Authorization': `${beer} ${token}`,
+        }
+    };
+
+
+    //Aca Finaliza
+  
+
 
     const [ceventos, setEventos] = useState([])
     
@@ -16,13 +35,13 @@ export const CompMostrarEventos = () => {
 
     //procedimineto para mostrar todos los registros
     const ObtenerEventos = async () => {
-        const res = await axios.get(URI)
+        const res = await axios.get(URI,axiosConfig )
         setEventos(res.data)
     }
 
     //procedimineto para eliminar un registro
       const deleteEventos = async (id) => {
-        await axios.delete(`${URI}+${id}`)
+        await axios.delete(`${URI}${id}`)
         ObtenerEventos()
      }
 
@@ -31,9 +50,12 @@ return (
    
         <div >
             <Link to="/crearevento" className='btn btn-primary mt-2 mb-2'>Crear Evento</Link>
+           <center>
             <Card style={{ width: '60rem' }}>
             <Card.Body>
-             
+            <Card.Img src={img1} alt="Card image" />
+                 <Card.ImgOverlay>
+                         <Card.Text>
             <Table >
                 <thead >
                     <tr>
@@ -63,9 +85,12 @@ return (
                     )) }
                 </tbody>
             </Table>
-          
+            </Card.Text>
+            </Card.ImgOverlay>
+                       
             </Card.Body>
             </Card>
+            </center>
         </div>    
  
 

@@ -10,6 +10,7 @@ import {CompCrearEvento} from './Componentes/CrearEvento.jsx'
 import {CompMostrarEventos} from './Componentes/MostrarEventos.jsx'
 import {CompEditarEventos} from './Componentes/EditarEventos.jsx'
 import {CompEditarUsuario} from './Componentes/EditarUsuario.jsx'
+import {Login} from './Componentes/Login.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
                               <Route path='/editarusuario/:id' element= {<CompEditarUsuario />} />
                               <Route path='/crearevento' element= {<CompCrearEvento />} /> 
                               <Route path='/mostrareventos' element= {<CompMostrarEventos />} />
-                              <Route path='/editareventos/:id' element= {<CompEditarEventos />} />   
+                              <Route path='/editareventos/:id' element= {<CompEditarEventos />} />  
+                              <Route path='/login' element= {<Login />} />  
                       </Route> 
                          
                      </Routes>
